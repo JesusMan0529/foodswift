@@ -68,6 +68,11 @@ public class SetmealController {
         return Result.success(setmealVO);
     }
 
+    /***
+     * 修改套餐
+     * @param setmealDTO
+     * @return
+     */
     @PutMapping
     public Result update(@RequestBody SetmealDTO setmealDTO){
         setmealService.update(setmealDTO);
