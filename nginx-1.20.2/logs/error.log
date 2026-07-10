@@ -1,0 +1,1 @@
+2026/07/06 14:47:13 [error] 2584#8596: *82 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "PUT /api/shop/1 HTTP/1.1", upstream: "http://[::1]:8080/admin/shop/1", host: "localhost", referrer: "http://localhost/"

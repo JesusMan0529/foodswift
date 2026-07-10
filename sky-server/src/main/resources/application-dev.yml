@@ -16,3 +16,6 @@ sky:
     port: 6379
     password: LiHaoDong521
     database: 0
+  wechat:
+    appid: wx8dd00b36347ee19e
+    secret: 0b16c3a7fc2025a291cbdcc3420b4460
