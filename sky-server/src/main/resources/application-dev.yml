@@ -19,3 +19,7 @@ sky:
   wechat:
     appid: wx8dd00b36347ee19e
     secret: 0b16c3a7fc2025a291cbdcc3420b4460
+  shop:
+    address: 陕西省西安市碑林区咸宁西路28号西安交通大学兴庆校区梧桐苑
+  baidu:
+    ak: VMCR0EZevqXLAeYP09KRAVbHMsJzMm9X

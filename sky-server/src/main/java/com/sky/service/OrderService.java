@@ -16,7 +16,7 @@ public interface OrderService {
     OrderSubmitVO submitOrder(OrdersSubmitDTO ordersSubmitDTO);
 
     /**
-     * 订单支付
+     * 模拟订单支付
      * @param ordersPaymentDTO
      * @return
      */
