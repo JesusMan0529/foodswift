@@ -99,4 +99,15 @@ public class OrderController {
         return Result.success();
     }
 
+    /**
+     * 完成订单
+     *
+     * @return
+     */
+    @PutMapping("/complete/{id}")
+    public Result complete(@PathVariable Long id) {
+        orderService.complete(id);
+        return Result.success();
+    }
+
 }
