@@ -136,12 +136,10 @@ public class OrderServiceImpl implements OrderService {
     }
 
     /**
-     * 订单支付
-     *
+     * 订单支付 - 伪支付
      * @param ordersPaymentDTO
      * @return
      */
-    @Transactional
     public OrderPaymentVO payment(OrdersPaymentDTO ordersPaymentDTO) {
         Long userId = BaseContext.getCurrentId();
         Orders ordersDB = orderMapper.getByNumber(ordersPaymentDTO.getOrderNumber());
@@ -167,7 +165,7 @@ public class OrderServiceImpl implements OrderService {
         orderMapper.update(orders);
 
         log.info("支付成功，订单号：{}", ordersPaymentDTO.getOrderNumber());
-        return new OrderPaymentVO();
+        return new OrderPaymentVO(); //模拟支付没有调用微信统一下单接口，所以没有这些参数
     }
 
     /**
@@ -535,6 +533,7 @@ public class OrderServiceImpl implements OrderService {
         map.put("ak",ak);
 
         //获取店铺的经纬度坐标
+        //文字地址 → 经纬度
         String shopCoordinate = HttpClientUtil.doGet("https://api.map.baidu.com/geocoding/v3", map);
 
         JSONObject jsonObject = JSON.parseObject(shopCoordinate);
@@ -544,8 +543,9 @@ public class OrderServiceImpl implements OrderService {
 
         //数据解析
         JSONObject location = jsonObject.getJSONObject("result").getJSONObject("location");
-        String lat = location.getString("lat");
-        String lng = location.getString("lng");
+        String lat = location.getString("lat"); //纬度
+        String lng = location.getString("lng"); //经度
+
         //店铺经纬度坐标
         String shopLngLat = lat + "," + lng;
 
