@@ -3,14 +3,14 @@ fs:
     driver-class-name: com.mysql.cj.jdbc.Driver
     host: localhost
     port: 3306
-    database: fs_take_out
+    database: sky_take_out
     username: root
     password: LiHaoDong521
   alioss:
     endpoint: oss-cn-beijing.aliyuncs.com
     access-key-id: ${ALIYUN_ACCESS_KEY_ID}
     access-key-secret: ${ALIYUN_ACCESS_KEY_SECRET}
-    bucket-name: fsy-takke-outt
+    bucket-name: skyy-takke-outt
   redis:
     host: localhost
     port: 6379
