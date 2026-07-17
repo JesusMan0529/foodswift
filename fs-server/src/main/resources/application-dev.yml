@@ -21,5 +21,7 @@ fs:
     secret: 0b16c3a7fc2025a291cbdcc3420b4460
   shop:
     address: 陕西省西安市碑林区咸宁西路28号西安交通大学兴庆校区梧桐苑
+    # 配送范围阈值（单位：米）
+    delivery-range: 5000
   baidu:
     ak: VMCR0EZevqXLAeYP09KRAVbHMsJzMm9X
