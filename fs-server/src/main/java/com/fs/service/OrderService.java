@@ -2,7 +2,6 @@ package com.fs.service;
 
 import com.fs.dto.*;
 import com.fs.result.PageResult;
-import com.fs.vo.OrderPaymentVO;
 import com.fs.vo.OrderStatisticsVO;
 import com.fs.vo.OrderSubmitVO;
 import com.fs.vo.OrderVO;
@@ -18,15 +17,8 @@ public interface OrderService {
     /**
      * 模拟订单支付
      * @param ordersPaymentDTO
-     * @return
      */
-    OrderPaymentVO payment(OrdersPaymentDTO ordersPaymentDTO) throws Exception;
-
-    /**
-     * 支付成功，修改订单状态
-     * @param outTradeNo
-     */
-    void paySuccess(String outTradeNo);
+    void payment(OrdersPaymentDTO ordersPaymentDTO);
 
     /**
      * 用户端订单分页查询
@@ -48,7 +40,7 @@ public interface OrderService {
      * 用户取消订单
      * @param id
      */
-    void userCancelById(Long id) throws Exception;
+    void userCancelById(Long id);
 
     /**
      * 再来一单
@@ -81,14 +73,14 @@ public interface OrderService {
      *
      * @param ordersRejectionDTO
      */
-    void rejection(OrdersRejectionDTO ordersRejectionDTO) throws Exception;
+    void rejection(OrdersRejectionDTO ordersRejectionDTO);
 
     /**
      * 商家取消订单
      *
      * @param ordersCancelDTO
      */
-    void cancel(OrdersCancelDTO ordersCancelDTO) throws Exception;
+    void cancel(OrdersCancelDTO ordersCancelDTO);
 
     /**
      * 派送订单

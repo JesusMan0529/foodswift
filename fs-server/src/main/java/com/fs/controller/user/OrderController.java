@@ -5,7 +5,6 @@ import com.fs.dto.OrdersSubmitDTO;
 import com.fs.result.PageResult;
 import com.fs.result.Result;
 import com.fs.service.OrderService;
-import com.fs.vo.OrderPaymentVO;
 import com.fs.vo.OrderSubmitVO;
 import com.fs.vo.OrderVO;
 import lombok.extern.slf4j.Slf4j;
@@ -35,13 +34,12 @@ public class OrderController {
     /**
      * 订单支付
      * @param ordersPaymentDTO
-     * @return
      */
     @PutMapping("/payment")
-    public Result<OrderPaymentVO> payment(@RequestBody OrdersPaymentDTO ordersPaymentDTO) throws Exception {
+    public Result payment(@RequestBody OrdersPaymentDTO ordersPaymentDTO) {
         log.info("模拟订单支付：{}", ordersPaymentDTO);
-        OrderPaymentVO orderPaymentVO = orderService.payment(ordersPaymentDTO);
-        return Result.success(orderPaymentVO);
+        orderService.payment(ordersPaymentDTO);
+        return Result.success();
     }
 
     /**
@@ -75,7 +73,7 @@ public class OrderController {
      * @return
      */
     @PutMapping("/cancel/{id}")
-    public Result cancel(@PathVariable Long id) throws Exception {
+    public Result cancel(@PathVariable Long id) {
         orderService.userCancelById(id);
         return Result.success();
     }

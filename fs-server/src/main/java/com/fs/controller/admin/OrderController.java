@@ -72,7 +72,7 @@ public class OrderController {
      * @return
      */
     @PutMapping("/rejection")
-    public Result rejection(@RequestBody OrdersRejectionDTO ordersRejectionDTO) throws Exception {
+    public Result rejection(@RequestBody OrdersRejectionDTO ordersRejectionDTO) {
         orderService.rejection(ordersRejectionDTO);
         return Result.success();
     }
@@ -83,7 +83,7 @@ public class OrderController {
      * @return
      */
     @PutMapping("/cancel")
-    public Result cancel(@RequestBody OrdersCancelDTO ordersCancelDTO) throws Exception {
+    public Result cancel(@RequestBody OrdersCancelDTO ordersCancelDTO) {
         orderService.cancel(ordersCancelDTO);
         return Result.success();
     }
