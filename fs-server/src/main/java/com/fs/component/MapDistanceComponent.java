@@ -116,7 +116,7 @@ public class MapDistanceComponent {
 
         if (distance > deliveryRange) {
             //配送距离超过阈值
-            throw new OrderBusinessException(MessageConstant.OUT_OF_DELIVERY_RANGE);
+            throw new OrderBusinessException("超出配送范围");
         }
     }
 }
