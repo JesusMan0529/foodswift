@@ -81,6 +81,7 @@ public class DishRecommendTask {
     /***
      * 获取指定用户的当日推荐菜品
      * 仅当店铺在该用户收货地址的配送范围内时，菜品才能进入推荐
+     * 地图服务异常或未设置地址时降级为正常推荐
      * @param userId
      * @return
      */
