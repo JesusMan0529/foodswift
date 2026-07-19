@@ -242,7 +242,8 @@ public class ReportServiceImpl implements ReportService {
         LocalDate dateEnd = LocalDate.now().minusDays(1);
 
         //查询概览数据
-        BusinessDataVO businessDataVO = workspaceService.getBusinessData(LocalDateTime.of(dateBegin, LocalTime.MIN), LocalDateTime.of(dateEnd, LocalTime.MAX));
+        BusinessDataVO businessDataVO = workspaceService.getBusinessData(LocalDateTime.of(dateBegin, LocalTime.MIN),
+        LocalDateTime.of(dateEnd, LocalTime.MAX));
 
         //2. 通过POI将数据写入到Excel文件中
         InputStream in = this.getClass().getClassLoader().getResourceAsStream("template/运营数据报表模板.xlsx");
@@ -272,7 +273,8 @@ public class ReportServiceImpl implements ReportService {
             for (int i = 0; i < 30; i++) {
                 LocalDate date = dateBegin.plusDays(i);
                 //查询某一天的营业数据
-                BusinessDataVO businessData = workspaceService.getBusinessData(LocalDateTime.of(date, LocalTime.MIN), LocalDateTime.of(date, LocalTime.MAX));
+                BusinessDataVO businessData = workspaceService.getBusinessData(LocalDateTime.of(date, LocalTime.MIN),
+                LocalDateTime.of(date, LocalTime.MAX));
 
                 //获得某一行
                 row = sheet.getRow(7 + i);
@@ -289,6 +291,7 @@ public class ReportServiceImpl implements ReportService {
             excel.write(out);
 
             //关闭资源
+            in.close();
             out.close();
             excel.close();
         } catch (IOException e) {
