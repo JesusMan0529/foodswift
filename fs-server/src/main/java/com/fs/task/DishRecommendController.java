@@ -1,5 +1,6 @@
 package com.fs.task;
 
+import com.fs.context.BaseContext;
 import com.fs.entity.Dish;
 import com.fs.result.Result;
 import io.swagger.annotations.Api;
@@ -24,13 +25,14 @@ public class DishRecommendController {
 
     /**
      * 查询今日推荐的三道随机菜品
+     * 仅当店铺在当前登录用户收货地址的配送范围内时才会返回推荐
      *
      * @return
      */
     @GetMapping("/list")
     @ApiOperation("查询今日推荐的三道随机菜品")
     public Result<List<Dish>> list() {
-        List<Dish> list = dishRecommendTask.getTodayRecommendDishes();
+        List<Dish> list = dishRecommendTask.getTodayRecommendDishes(BaseContext.getCurrentId());
         return Result.success(list);
     }
 }
