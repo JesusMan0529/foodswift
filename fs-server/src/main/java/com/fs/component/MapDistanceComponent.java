@@ -48,6 +48,18 @@ public class MapDistanceComponent {
      * @param address
      */
     public void checkOutOfRange(String address) {
+        if (!isWithinRange(address)) {
+            //配送距离超过阈值
+            throw new OrderBusinessException("超出配送范围");
+        }
+    }
+
+    /**
+     * 判断收货地址是否在店铺配送范围内
+     * @param address
+     * @return true-在配送范围内，false-超出配送范围
+     */
+    public boolean isWithinRange(String address) {
         //获取店铺的经纬度坐标（优先读取 Redis 缓存，避免每次调用都解析店铺地址）
         String shopLngLat = (String) redisTemplate.opsForValue().get(SHOP_LOCATION_KEY);
 
@@ -114,9 +126,6 @@ public class MapDistanceComponent {
         JSONArray jsonArray = (JSONArray) result.get("routes");
         Integer distance = (Integer) ((JSONObject) jsonArray.get(0)).get("distance");
 
-        if (distance > deliveryRange) {
-            //配送距离超过阈值
-            throw new OrderBusinessException("超出配送范围");
-        }
+        return distance <= deliveryRange;
     }
 }
