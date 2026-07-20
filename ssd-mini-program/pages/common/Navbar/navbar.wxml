@@ -1,0 +1,13 @@
+<view class="navBar">
+  <image class="nav-bg" src="../../../static/bg.png" mode="aspectFill"></image>
+  <view class="nav-shade"></view>
+  <view
+    data-event-opts="{{[['tap',[['myCenterFun',['$event']]]]]}}"
+    class="person-box"
+    style="{{'top:'+(ht+'px')+';'}}"
+    bindtap="__e"
+  >
+    <image class="person-icon" src="../../../static/center.png"></image>
+    <label class="person-title _span">个人中心</label>
+  </view>
+</view>

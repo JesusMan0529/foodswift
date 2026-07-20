@@ -1,0 +1,28 @@
+spring:
+  cache:
+    type: none
+
+fs:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    host: localhost
+    port: 3306
+    database: sky_take_out
+    username: root
+    password: 123456
+  alioss:
+    endpoint: oss-cn-beijing.aliyuncs.com
+    access-key-id: ${ALIYUN_ACCESS_KEY_ID}
+    access-key-secret: ${ALIYUN_ACCESS_KEY_SECRET}
+    bucket-name: skyy-takke-outt
+  redis:
+    host: localhost
+    port: 6379
+    password: LiHaoDong521
+    database: 0
+  wechat:
+    appid: wx8dd00b36347ee19e
+    secret: 0b16c3a7fc2025a291cbdcc3420b4460
+    # 仅供本地调试：避免受限网络无法访问 api.weixin.qq.com 时登录失败。
+    # 正式环境不要配置此项。
+    mock-openid: shisuda-dev-user

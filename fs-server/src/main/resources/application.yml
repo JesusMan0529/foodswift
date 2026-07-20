@@ -1,0 +1,64 @@
+
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev
+  main:
+    allow-circular-references: true
+  datasource:
+    druid:
+      driver-class-name: ${fs.datasource.driver-class-name}
+      url: jdbc:mysql://${fs.datasource.host}:${fs.datasource.port}/${fs.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true&connectTimeout=5000&socketTimeout=10000
+      username: ${fs.datasource.username}
+      password: ${fs.datasource.password}
+      connection-error-retry-attempts: 0
+      break-after-acquire-failure: true
+  redis:
+    host: ${fs.redis.host}
+    port: ${fs.redis.port}
+    password: ${fs.redis.password}
+    database: ${fs.redis.database}
+
+mybatis:
+  #mapper配置文件
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.fs.entity
+  configuration:
+    #开启驼峰命名
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    com:
+      sky:
+        mapper: debug
+        service: info
+        controller: info
+
+fs:
+  jwt:
+    # 设置jwt签名加密时使用的秘钥
+    admin-secret-key: shisuda-admin-jwt-secret-key-2026-local
+    # 设置jwt过期时间
+    admin-ttl: 7200000
+    # 设置前端传递过来的令牌名称
+    admin-token-name: token
+
+    user-secret-key: shisuda-user-jwt-secret-key-2026-local
+    user-ttl: 7200000
+    user-token-name: authentication
+  alioss:
+    endpoint: ${fs.alioss.endpoint}
+    access-key-id: ${fs.alioss.access-key-id}
+    access-key-secret: ${fs.alioss.access-key-secret}
+    bucket-name: ${fs.alioss.bucket-name}
+  wechat:
+    appid: ${fs.wechat.appid}
+    secret: ${fs.wechat.secret}
+  delivery:
+    # 高德 Web 服务 Key。未配置时推荐功能仍可使用，但不执行距离过滤。
+    amap-key: ${AMAP_WEB_SERVICE_KEY:}
+    shop-address: ${SHOP_ADDRESS:西安交通大学兴庆校区梧桐苑}
+    max-distance-meters: ${DELIVERY_MAX_DISTANCE_METERS:5000}

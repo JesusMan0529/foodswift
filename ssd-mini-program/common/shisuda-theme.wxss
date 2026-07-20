@@ -1,0 +1,406 @@
+/* 食速达全局主题：暖橙品牌色、奶油背景、深咖正文。 */
+page {
+  background: #fff7f2 !important;
+  color: #2d241f;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+view,
+scroll-view,
+button,
+input,
+textarea {
+  box-sizing: border-box;
+}
+
+button::after {
+  border: 0;
+}
+
+.customer-box,
+.home_content,
+.order_content,
+.history_order,
+.my-center,
+.wrap,
+.success_content,
+.nonet_content {
+  background: linear-gradient(180deg, #fffaf7 0%, #f7f2ee 100%) !important;
+}
+
+.box,
+.address_liests,
+.form_address,
+.orderPay,
+.payBox,
+.popup-content,
+.simple-address-content {
+  background: #ffffff !important;
+  border: 1rpx solid #f4ded2 !important;
+  border-radius: 24rpx !important;
+  box-shadow: 0 12rpx 32rpx rgba(92, 43, 18, 0.08) !important;
+}
+
+.add_btn,
+.go_dish,
+.btns,
+.order_but,
+.order_but_rit,
+.new_btn.btn,
+.dish_card_add,
+.check_but,
+.scroll-row-item-act,
+.scroll-row-day,
+.city-column_select,
+.tag_text.active {
+  color: #ffffff !important;
+  border-color: transparent !important;
+  background: linear-gradient(135deg, #ff7a1a 0%, #ef4317 100%) !important;
+  box-shadow: 0 10rpx 24rpx rgba(239, 67, 23, 0.22) !important;
+}
+
+.new_btn,
+.defaultBtn,
+.del_btn {
+  color: #f25520 !important;
+  border-color: #f5c9b5 !important;
+  background: #fffaf7 !important;
+  border-radius: 999rpx !important;
+}
+
+.dish_price,
+.money,
+.may,
+.totalMoney .text,
+.order_price,
+.status,
+.numAndAum view:first-child text {
+  color: #ef4d1b !important;
+}
+
+.tag,
+.tag1,
+.tag2,
+.tag3 {
+  color: #d84a1d !important;
+  background: #fff0e8 !important;
+  border-radius: 999rpx !important;
+}
+
+.uni-input,
+.uni-textarea,
+.update-input {
+  color: #2d241f !important;
+  background: #fffaf7 !important;
+  border-color: #f1ddd3 !important;
+  border-radius: 16rpx !important;
+}
+
+.popupTitle {
+  color: #d84a1d !important;
+  background: #fff0e8 !important;
+}
+
+.popupSet,
+.closePopup {
+  background: #fff7f2 !important;
+}
+
+.dish_add,
+.dish_red {
+  filter: hue-rotate(-28deg) saturate(1.18);
+}
+
+.businessStatus {
+  background: #20b978 !important;
+  border-radius: 999rpx !important;
+}
+
+.businessStatus.close {
+  background: #9b8f88 !important;
+}
+
+.pop_mask {
+  background: rgba(40, 25, 18, 0.48) !important;
+  backdrop-filter: blur(8rpx);
+}
+
+.dish_detail_pop,
+.more_norm_pop,
+.cart_pop {
+  border: 1rpx solid #f4ded2 !important;
+  border-radius: 28rpx !important;
+  box-shadow: 0 24rpx 60rpx rgba(46, 25, 15, 0.2) !important;
+}
+
+radio .wx-radio-input.wx-radio-input-checked::before,
+.payBox .wx-radio-input-checked {
+  color: #ffffff !important;
+  border-color: #ff641b !important;
+  background: #ff641b !important;
+}
+
+/* 首页菜单与菜品卡片。 */
+.home_content {
+  background: #ffffff !important;
+  position: absolute !important;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;
+  justify-content: flex-start !important;
+}
+
+.home_content .restaurant_info_box {
+  z-index: 20;
+  flex: 0 0 285rpx;
+  height: 285rpx;
+  min-height: 285rpx;
+  background: transparent !important;
+}
+
+.home_content .restaurant_info_box .restaurant_info {
+  z-index: 21 !important;
+  top: 10rpx !important;
+  padding: 14rpx 18rpx 22rpx 16rpx !important;
+  border: 0 !important;
+  border-radius: 12rpx !important;
+  box-shadow: 0 4rpx 10rpx rgba(69, 69, 69, 0.1) !important;
+}
+
+.home_content .restaurant_info .brand_logo {
+  display: block;
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 22rpx;
+  box-shadow: 0 10rpx 22rpx rgba(239, 67, 23, 0.25);
+}
+
+.home_content .restaurant_info .right_title text {
+  color: #2d241f !important;
+  font-weight: 700 !important;
+}
+
+.home_content .restaurant_info .info_top {
+  border-bottom-color: #f1ddd3 !important;
+}
+
+.home_content .restaurant_menu_list {
+  flex: 1;
+  min-height: 0;
+  height: auto !important;
+  margin-top: 0 !important;
+  padding: 0;
+  gap: 0;
+}
+
+.home_content .restaurant_menu_list .type_list {
+  width: 168rpx !important;
+  height: 100%;
+  padding-top: 0 !important;
+  background: #f7e9e0 !important;
+  border-radius: 0;
+}
+
+.home_content .restaurant_menu_list .type_list .menu-scroll-view {
+  width: 100%;
+  height: 100%;
+}
+
+.home_content .restaurant_menu_list .type_list .type_item {
+  color: #8d7e76 !important;
+  border-radius: 0;
+}
+
+.home_content .restaurant_menu_list .type_list .active {
+  color: #e94b1b !important;
+  background: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+.home_content .restaurant_menu_list .type_list .active::before {
+  content: "";
+  width: 8rpx;
+  height: 36rpx;
+  margin-right: 12rpx;
+  border-radius: 999rpx;
+  background: linear-gradient(180deg, #ff7a1a, #ef4317);
+}
+
+.home_content .restaurant_menu_list .vegetable_order_list,
+.home_content .restaurant_menu_list .no_dish {
+  height: 100% !important;
+  min-height: 0;
+  padding-top: 0 !important;
+  background: #ffffff !important;
+}
+
+.home_content .restaurant_menu_list .vegetable_order_list .type_item {
+  margin: 0;
+  padding: 20rpx 0 0 !important;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.home_content .restaurant_menu_list .vegetable_order_list .dish_img_url {
+  border-radius: 18rpx !important;
+}
+
+.home_content .footer_order_buttom {
+  background: linear-gradient(135deg, #3c251c 0%, #211510 100%) !important;
+  box-shadow: 0 16rpx 38rpx rgba(52, 28, 17, 0.28) !important;
+}
+
+.home_content .footer_order_buttom .order_but {
+  border-radius: 999rpx !important;
+}
+
+/* 订单、地址、个人中心等二级页统一留白与卡片语言。 */
+.order_content_box,
+.address,
+.main,
+.contion {
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+
+.my_info {
+  background: linear-gradient(135deg, #ff8a1a 0%, #ef4317 100%) !important;
+  box-shadow: 0 18rpx 42rpx rgba(239, 67, 23, 0.2);
+}
+
+.head_image {
+  border: 6rpx solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 10rpx 24rpx rgba(91, 34, 12, 0.18);
+}
+
+/* 个人中心两个入口共用同一栅格，避免图标透明边距造成文字错位。 */
+.my-center .container .address_order .address,
+.my-center .container .address_order .order {
+  display: flex !important;
+  width: 100% !important;
+  height: 100rpx;
+  padding: 0 22rpx 0 30rpx !important;
+  align-items: center;
+  line-height: normal !important;
+}
+
+.my-center .container .address_order .address .location,
+.my-center .container .address_order .order .location {
+  display: block;
+  flex: 0 0 38rpx;
+  width: 38rpx !important;
+  height: 38rpx !important;
+  margin: 0 18rpx 0 0 !important;
+  padding: 0 !important;
+  object-fit: contain;
+}
+
+.my-center .container .address_order .address .address_word,
+.my-center .container .address_order .order .order_word {
+  display: block;
+  flex: 1;
+  text-align: left !important;
+  line-height: 40rpx !important;
+}
+
+.my-center .container .address_order .address .to_right,
+.my-center .container .address_order .order .to_right {
+  position: static !important;
+  display: block !important;
+  flex: 0 0 30rpx;
+  width: 30rpx !important;
+  height: 30rpx !important;
+  margin: 0 !important;
+  transform: none !important;
+}
+
+.my-center .my_info .wechat-login-btn {
+  width: 190rpx;
+  height: 64rpx;
+  margin: auto 28rpx auto 12rpx;
+  padding: 0;
+  color: #ff641b;
+  background: #ffffff;
+  border-radius: 32rpx;
+  font-size: 26rpx;
+  font-weight: 600;
+  line-height: 64rpx;
+  box-shadow: 0 8rpx 20rpx rgba(130, 43, 7, 0.16);
+}
+
+.my-center .my_info .avatar-picker {
+  position: relative;
+  display: block;
+  flex: 0 0 172rpx;
+  width: 172rpx;
+  height: 172rpx;
+  margin: auto 0 auto 30rpx;
+  padding: 0;
+  overflow: hidden;
+  background: transparent;
+  border-radius: 50%;
+  line-height: normal;
+}
+
+.my-center .my_info .avatar-picker::after,
+.my-center .my_info .wechat-login-btn::after {
+  border: 0;
+}
+
+.my-center .my_info .avatar-picker .head_image {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border-radius: 50%;
+}
+
+.my-center .my_info .avatar-picker .avatar-hint {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 44rpx;
+  color: #ffffff;
+  background: rgba(45, 36, 31, 0.62);
+  font-size: 22rpx;
+  line-height: 44rpx;
+  text-align: center;
+}
+
+.my-center .my_info .phone_name {
+  min-width: 0;
+}
+
+.my-center .my_info .nickname-input {
+  width: 250rpx;
+  height: 58rpx;
+  padding: 0 16rpx;
+  color: #2d241f;
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 12rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  line-height: 58rpx;
+}
+
+.my-center .my_info .wechat-logged {
+  width: 128rpx;
+  height: 56rpx;
+  margin: auto 28rpx auto 12rpx;
+  color: #ffffff;
+  background: rgba(45, 36, 31, 0.24);
+  border: 2rpx solid rgba(255, 255, 255, 0.7);
+  border-radius: 30rpx;
+  font-size: 24rpx;
+  line-height: 56rpx;
+  text-align: center;
+}
+
+.success_info,
+.nonet_content {
+  color: #2d241f !important;
+}
