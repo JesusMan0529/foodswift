@@ -25,6 +25,16 @@ public class ShoppingCartController {
         return Result.success();
     }
 
+    /**
+     * 减少当前用户购物车中的一份商品。
+     */
+    @PostMapping("/sub")
+    public Result sub(@RequestBody ShoppingCartDTO shoppingCartDTO) {
+        log.info("减少购物车商品，商品信息为：{}", shoppingCartDTO);
+        shoppingCartService.subShoppingCart(shoppingCartDTO);
+        return Result.success();
+    }
+
     /***
      * 查看购物车
      * @return

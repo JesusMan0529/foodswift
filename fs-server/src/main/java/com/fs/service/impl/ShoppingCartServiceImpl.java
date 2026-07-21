@@ -72,6 +72,36 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         }
     }
 
+    /**
+     * 减少购物车中指定商品的数量。
+     */
+    @Override
+    public void subShoppingCart(ShoppingCartDTO shoppingCartDTO) {
+        if (shoppingCartDTO == null
+                || (shoppingCartDTO.getDishId() == null && shoppingCartDTO.getSetmealId() == null)) {
+            log.warn("忽略缺少菜品和套餐标识的购物车减菜请求：{}", shoppingCartDTO);
+            return;
+        }
+
+        ShoppingCart query = new ShoppingCart();
+        BeanUtils.copyProperties(shoppingCartDTO, query);
+        query.setUserId(BaseContext.getCurrentId());
+
+        List<ShoppingCart> list = shoppingCartMapper.list(query);
+        if (list == null || list.isEmpty()) {
+            // 重复点击或界面数据稍有延迟时按幂等方式处理。
+            return;
+        }
+
+        ShoppingCart cart = list.get(0);
+        if (cart.getNumber() != null && cart.getNumber() > 1) {
+            cart.setNumber(cart.getNumber() - 1);
+            shoppingCartMapper.updateNumberById(cart);
+        } else {
+            shoppingCartMapper.deleteById(cart.getId());
+        }
+    }
+
     /***
      * 查看购物车
      * @return
