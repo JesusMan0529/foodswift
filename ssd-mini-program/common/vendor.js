@@ -4760,13 +4760,15 @@ var _index = __webpack_require__(/*! ../../utils/index.js */ 29);function _inter
     // 订单里和总订单价格计算
     computOrderInfo: function computOrderInfo() {var _this17 = this;
       var oriData = this.orderListDataes;
-      this.orderDishNumber = this.orderDishPrice = 0;
+      var totalCents = 0;
+      this.orderDishNumber = 0;
       oriData.map(function (n, i) {
-        _this17.orderDishNumber += n.number;
-        // this.orderDishPrice += n.number * n.price
-        _this17.orderDishPrice += n.number * n.amount;
+        var number = Number(n.number) || 0;
+        var unitPriceCents = Math.round((Number(n.amount) || 0) * 100);
+        _this17.orderDishNumber += number;
+        totalCents += unitPriceCents * number;
       });
-      this.orderDishPrice = this.orderDishPrice;
+      this.orderDishPrice = Number((totalCents / 100).toFixed(2));
     },
     // 处理点餐数量 - 更新菜品已点餐数量
     setOrderNum: function setOrderNum() {
@@ -22104,14 +22106,17 @@ var _default = {
     // 订单里和总订单价格计算
     computOrderInfo: function computOrderInfo() {var _this6 = this;
       var oriData = this.orderListDataes;
-      this.orderDishNumber = this.orderDishPrice = 0;
-      this.orderDishPrice = 0;
+      var dishAmountCents = 0;
+      this.orderDishNumber = 0;
       oriData.map(function (n, i) {
-        // this.orderDishPrice += n.number * n.price
-        _this6.orderDishPrice += n.number * n.amount;
-        _this6.orderDishNumber += n.number;
+        var number = Number(n.number) || 0;
+        var unitPriceCents = Math.round((Number(n.amount) || 0) * 100);
+        dishAmountCents += unitPriceCents * number;
+        _this6.orderDishNumber += number;
       });
-      this.orderDishPrice = this.orderDishPrice + 6 + this.orderDishNumber;
+      var deliveryFeeCents = 6 * 100;
+      var packingFeeCents = this.orderDishNumber * 100;
+      this.orderDishPrice = Number(((dishAmountCents + deliveryFeeCents + packingFeeCents) / 100).toFixed(2));
     },
     // 返回上一级
     goBack: function goBack() {

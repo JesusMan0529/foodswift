@@ -29,6 +29,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -92,6 +93,9 @@ public class OrderServiceImpl implements OrderService {
         //2.向订单表来插入1条数据
         Orders orders = new Orders();
         BeanUtils.copyProperties(ordersSubmitDTO,orders);
+        if (ordersSubmitDTO.getAmount() != null) {
+            orders.setAmount(ordersSubmitDTO.getAmount().setScale(2, RoundingMode.HALF_UP));
+        }
         orders.setOrderTime(LocalDateTime.now());
         orders.setPayStatus(Orders.UN_PAID);
         orders.setStatus(Orders.PENDING_PAYMENT);

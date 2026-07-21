@@ -14,6 +14,9 @@ import com.fs.vo.SetmealOverViewVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.HashMap;
@@ -62,6 +65,9 @@ public class WorkspaceServiceImpl implements WorkspaceService {
         //营业额
         Double turnover = orderMapper.sumByMap(map);
         turnover = turnover == null? 0.0 : turnover;
+        BigDecimal turnoverAmount = BigDecimal.valueOf(turnover)
+                .setScale(2, RoundingMode.HALF_UP);
+        turnover = turnoverAmount.doubleValue();
 
         //有效订单数
         Integer validOrderCount = orderMapper.countByMap(map);
@@ -73,7 +79,9 @@ public class WorkspaceServiceImpl implements WorkspaceService {
             //订单完成率
             orderCompletionRate = validOrderCount.doubleValue() / totalOrderCount;
             //平均客单价
-            unitPrice = turnover / validOrderCount;
+            unitPrice = turnoverAmount
+                    .divide(BigDecimal.valueOf(validOrderCount), 2, RoundingMode.HALF_UP)
+                    .doubleValue();
         }
 
         //新增用户数

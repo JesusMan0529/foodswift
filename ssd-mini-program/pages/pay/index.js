@@ -195,7 +195,10 @@ var _api = __webpack_require__(/*! @/pages/api/api.js */ 24);function ownKeys(ob
 
   },
   created: function created() {
-    this.orderDataInfo = this.orderData();
+    var orderData = this.orderData() || {};
+    this.orderDataInfo = _objectSpread(_objectSpread({}, orderData), {}, {
+      orderAmount: Number(orderData.orderAmount || 0).toFixed(2) });
+
     // this.getBaseData(this.orderId)
   },
   mounted: function mounted() {
