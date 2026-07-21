@@ -52,7 +52,7 @@
         order by create_time desc
     </select>
     <select id="countByMap" resultType="java.lang.Integer">
-        select count(id) from setmeal
+        select count(id) from dish
         <where>
             <if test="status != null">
                 and status = #{status}
