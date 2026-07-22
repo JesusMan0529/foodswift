@@ -197,6 +197,9 @@ radio .wx-radio-input.wx-radio-input-checked::before,
 
 .home_content .restaurant_menu_list .type_list {
   width: 168rpx !important;
+  min-width: 168rpx !important;
+  max-width: 168rpx !important;
+  flex: 0 0 168rpx !important;
   height: 100%;
   padding-top: 0 !important;
   background: #f7e9e0 !important;
@@ -209,8 +212,24 @@ radio .wx-radio-input.wx-radio-input-checked::before,
 }
 
 .home_content .restaurant_menu_list .type_list .type_item {
+  width: 168rpx;
+  min-width: 168rpx;
+  display: grid;
+  grid-template-columns: 24rpx minmax(0, 1fr);
+  padding-left: 0;
+  padding-right: 12rpx;
+  box-sizing: border-box;
   color: #8d7e76 !important;
   border-radius: 0;
+}
+
+.home_content .restaurant_menu_list .type_list .type_item .item {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: break-word;
 }
 
 .home_content .restaurant_menu_list .type_list .active {
@@ -219,17 +238,27 @@ radio .wx-radio-input.wx-radio-input-checked::before,
   font-weight: 700 !important;
 }
 
-.home_content .restaurant_menu_list .type_list .active::before {
+.home_content .restaurant_menu_list .type_list .type_item::before {
   content: "";
-  width: 8rpx;
+  display: block;
+  width: 6rpx;
   height: 36rpx;
-  margin-right: 12rpx;
+  margin: 0;
   border-radius: 999rpx;
+  justify-self: center;
   background: linear-gradient(180deg, #ff7a1a, #ef4317);
+  opacity: 0;
+}
+
+.home_content .restaurant_menu_list .type_list .active::before {
+  opacity: 1;
 }
 
 .home_content .restaurant_menu_list .vegetable_order_list,
 .home_content .restaurant_menu_list .no_dish {
+  flex: 1 1 0%;
+  width: 0;
+  min-width: 0;
   height: 100% !important;
   min-height: 0;
   padding-top: 0 !important;

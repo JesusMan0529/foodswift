@@ -168,6 +168,9 @@
 }
 .home_content .restaurant_menu_list .type_list.data-v-57280228 {
   display: flex;
+  flex: 0 0 168rpx;
+  min-width: 168rpx;
+  max-width: 168rpx;
   overflow: hidden;
   background-color: #f7e9e0;
   width: 168rpx;
@@ -178,21 +181,43 @@
   font-size: 26rpx;
 }
 .home_content .restaurant_menu_list .type_list .type_item.data-v-57280228 {
+  width: 168rpx;
+  min-width: 168rpx;
+  min-height: 100rpx;
   line-height: 100rpx;
-  text-align: left;
-  padding-left: 20rpx;
-  padding-right: 26rpx;
+  padding: 0 12rpx 0 0;
   font-family: PingFangSC, PingFangSC-Regular;
   font-weight: 400;
   color: #8d7e76;
   box-sizing: border-box;
-  display: flex;
+  display: grid;
+  grid-template-columns: 24rpx minmax(0, 1fr);
   align-items: center;
-  justify-content: center;
   text-align: center;
 }
+.home_content .restaurant_menu_list .type_list .type_item.data-v-57280228::before {
+  content: "";
+  display: block;
+  width: 6rpx;
+  height: 36rpx;
+  margin: 0;
+  border-radius: 999rpx;
+  justify-self: center;
+  background: linear-gradient(180deg, #ff7a1a, #ef4317);
+  opacity: 0;
+}
 .home_content .restaurant_menu_list .type_list .type_item .item.data-v-57280228 {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  min-height: 100rpx;
   line-height: 100rpx;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: break-word;
 }
 .home_content .restaurant_menu_list .type_list .type_item .allLine.data-v-57280228 {
   padding: 16rpx 0;
@@ -205,9 +230,11 @@
   font-family: PingFangSC, PingFangSC-Medium;
   font-weight: 500;
 }
+.home_content .restaurant_menu_list .type_list .active.data-v-57280228::before {
+  opacity: 1;
+}
 .home_content .restaurant_menu_list .type_list .active.data-v-57280228::after {
-  background-color: #f7e9e0;
-  border-radius: 0 15rpx 0 0;
+  content: none;
 }
 .home_content .restaurant_menu_list .type_list .seize_seat.data-v-57280228 {
   width: 100%;
@@ -218,7 +245,9 @@
   padding-top: 140rpx;
   box-sizing: border-box;
   height: calc(100% - 0rpx);
-  flex: 1;
+  flex: 1 1 0%;
+  width: 0;
+  min-width: 0;
   position: relative;
 }
 .home_content .recommend_block.data-v-57280228 {
